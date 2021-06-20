@@ -1,0 +1,9 @@
+.card-deck
+{
+  width: 100%;
+}
+
+.card {
+  margin-left: auto;
+  margin-right: auto;
+}
