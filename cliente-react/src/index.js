@@ -5,13 +5,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import NavbarComponent from "./components/navbar";
 import CardsHomeComponent from "./components/cardsHome";
+import DetalleComponent from "./components/detalle";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
-        <Route path="/"> 
+        <Route path="/:id">
+          <NavbarComponent></NavbarComponent>
+          <DetalleComponent></DetalleComponent>
+        </Route>
+        <Route path="/" exact> 
           <NavbarComponent></NavbarComponent>
           <CardsHomeComponent></CardsHomeComponent>
         </Route>

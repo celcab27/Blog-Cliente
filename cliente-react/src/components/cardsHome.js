@@ -42,7 +42,7 @@ class CardsHomeComponent extends React.Component {
               </Card.Title>
               <Card.Text>
                 <Button variant="outline-light">
-                  <Link className="link">Ver en detalle</Link>
+                  <Link className="link" to={`/${post.id}`}>Ver en detalle</Link>
                 </Button>
                 <Button
                   variant="outline-light"

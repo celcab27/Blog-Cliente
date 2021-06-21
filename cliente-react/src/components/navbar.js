@@ -7,11 +7,11 @@ class NavbarComponent extends React.Component {
   render() {
     return (
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="/home">Alkemy's Blog</Navbar.Brand>
+        <Navbar.Brand href="/">Alkemy's Blog</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Link className="nav-link" to="/ABM">
               Editar
             </Link>
