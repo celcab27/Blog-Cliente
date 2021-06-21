@@ -8,6 +8,7 @@ import CardsHomeComponent from "./components/cardsHome";
 import DetalleComponent from "./components/detalle";
 import reportWebVitals from "./reportWebVitals";
 
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>
