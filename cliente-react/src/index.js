@@ -12,7 +12,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route path="/"> 
-          {/* <NavbarComponent></NavbarComponent> */}
+          <NavbarComponent></NavbarComponent>
           <CardsHomeComponent></CardsHomeComponent>
         </Route>
       </Switch>
