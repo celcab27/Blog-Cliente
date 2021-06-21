@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import NavbarComponent from "./components/navbar";
 import CardsHomeComponent from "./components/cardsHome";
 import DetalleComponent from "./components/detalle";
+import NuevoPostComponent from "./components/nuevoPost";
 import reportWebVitals from "./reportWebVitals";
 
 
@@ -19,6 +20,7 @@ ReactDOM.render(
         </Route>
         <Route path="/" exact> 
           <NavbarComponent></NavbarComponent>
+          <NuevoPostComponent></NuevoPostComponent>
           <CardsHomeComponent></CardsHomeComponent>
         </Route>
       </Switch>

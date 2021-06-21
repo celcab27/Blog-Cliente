@@ -63,7 +63,7 @@ class EditarPost extends React.Component {
         </Button>
         <Modal show={this.state.showModal}>
           <Modal.Header>
-            <Modal.Title>Nueva Operación: </Modal.Title>
+            <Modal.Title>Editar Operación: </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form>
