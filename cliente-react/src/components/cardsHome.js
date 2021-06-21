@@ -1,6 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, CardDeck } from "react-bootstrap";
+import EditarPost from './editarPost';
+import { Card, CardDeck, Button, Alert } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class CardsHomeComponent extends React.Component {
   constructor(props) {
@@ -34,7 +36,18 @@ class CardsHomeComponent extends React.Component {
               <Card.Title>
                 {variant} {post.title}{" "}
               </Card.Title>
-              <Card.Text></Card.Text>
+              <Card.Text>
+                <Button variant="outline-light">
+                  <Link className="link">Ver en detalle</Link>
+                </Button>
+                <Button
+                  variant="outline-light"
+                  onClick={() => this.deletePost(post.id)}
+                >
+                  Eliminar
+                </Button>
+                {/* <EditarPost></EditarPost> */}
+              </Card.Text>
             </Card.Body>
           </Card>
         </div>
@@ -46,6 +59,21 @@ class CardsHomeComponent extends React.Component {
         {postArray}
       </CardDeck>
     );
+  }
+
+  deletePost(id) {
+    fetch("https://jsonplaceholder.typicode.com/posts/1", {
+      method: "DELETE",
+    }).then((res) => {
+      console.log(res.status);
+      if (res.status == 200) {
+        return (
+          <Alert variant="Success" show="true">
+            ¡Recurso eliminado correctamente!
+          </Alert>
+        );
+      }
+    });
   }
 }
 
