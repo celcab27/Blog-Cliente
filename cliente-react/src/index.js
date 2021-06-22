@@ -9,19 +9,18 @@ import DetalleComponent from "./components/detalle";
 import NuevoPostComponent from "./components/nuevoPost";
 import reportWebVitals from "./reportWebVitals";
 
-
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
         <Route path="/:id">
-          <NavbarComponent></NavbarComponent>
-          <DetalleComponent></DetalleComponent>
+¿            <NavbarComponent></NavbarComponent>
+            <DetalleComponent></DetalleComponent>
         </Route>
-        <Route path="/" exact> 
-          <NavbarComponent></NavbarComponent>
-          <NuevoPostComponent></NuevoPostComponent>
-          <CardsHomeComponent></CardsHomeComponent>
+        <Route path="/" exact>
+            <NavbarComponent></NavbarComponent>
+            <NuevoPostComponent></NuevoPostComponent>
+            <CardsHomeComponent></CardsHomeComponent>
         </Route>
       </Switch>
     </Router>
