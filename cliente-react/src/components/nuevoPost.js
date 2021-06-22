@@ -5,7 +5,7 @@ import {
   Modal,
   Button,
   Form,
-  FormGroup,
+  Alert,
   Col,
   FormControl,
 } from "react-bootstrap";
@@ -15,6 +15,9 @@ class NuevoPostComponent extends React.Component {
     super();
     this.state = {
       showModal: false,
+      variant: '',
+      alert: false,
+      message: ''
     };
     this.title = React.createRef();
     this.content = React.createRef();
@@ -24,8 +27,30 @@ class NuevoPostComponent extends React.Component {
     this.setState({ showModal: !this.state.showModal });
   }
 
+  handleAlert(message, variant) {
+    if(message && variant)
+    {
+      this.setState({message: message, variant: variant});
+
+    }
+    this.setState({alert: !this.state.alert})
+  }
+
+  validate(item) {
+    if (item == undefined || item == "") {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   sendOperation() {
-    fetch('https://jsonplaceholder.typicode.com/posts', {
+    const title = this.title.current.value;
+    const content = this.content.current.value
+
+    if(this.validate(title) && this.validate(content))
+    {
+      fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
         body: JSON.stringify({
           title: this.title.current.value,
@@ -36,16 +61,34 @@ class NuevoPostComponent extends React.Component {
           'Content-type': 'application/json; charset=UTF-8',
         },
       })
-        .then((response) => response.json())
-        .then((json) => {
-            console.log(json)
-            this.handleModal();
+        .then((response) => {
+            console.log(response)
+            if(response.status == 201)
+            {
+              this.handleModal();
+              this.handleAlert('Recurso creado con éxito', 'success');
+            }
+            else{
+              this.handleAlert('Ha habido un error. Por favor, intentelo nuevamente', 'danger');
+            }
         });
+    } else {
+      this.handleAlert('Por favor, rellene todos los campos', 'danger');
+    }
+    
       
   }
   render() {
     return (
-      <div>
+      <div className="alertContainer">
+        <Alert variant={this.state.variant} 
+            show={this.state.alert}>
+            <p>{this.state.message}</p>
+            <hr />
+            <Button onClick={() => this.handleAlert()} variant={`outline-${this.state.variant}`}>
+              Cerrar
+            </Button>
+          </Alert>
         <Button
           variant="dark"
           size="lg"
